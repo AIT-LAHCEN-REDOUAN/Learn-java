@@ -1,6 +1,8 @@
 package OOP_Concept;
 
-public class Class3 {
+import java.io.*;
+
+public class Class3 implements Serializable {
     String name;
     String breed;
     int age;
@@ -42,5 +44,42 @@ public class Class3 {
 
         // Call toString() method implicitly when printing
         System.out.println(tuffy.toString());
+
+        //Serialization
+try{
+    FileOutputStream file = new FileOutputStream("file.bin");
+    ObjectOutputStream out = new ObjectOutputStream(file);
+
+    out.writeObject(tuffy);
+
+    out.close();
+    file.close();
+
+    System.out.println("Object Has Been Serialized");
+}catch (IOException ex){
+    System.out.println("IOExeption is caught");
+}
+//Desetializatio
+
+        try {
+            FileInputStream file1 = new FileInputStream("file.bin");
+            ObjectInputStream in = new ObjectInputStream(file1);
+
+            Class3 Object1 = (Class3)in.readObject();
+            in.close();
+            file1.close();
+
+            System.out.println("Object Has Been deserialized");
+            System.out.println(Object1.name);
+            System.out.println(Object1.breed);
+            System.out.println(Object1.age);
+            System.out.println(Object1.color);
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
+
     }
 }
