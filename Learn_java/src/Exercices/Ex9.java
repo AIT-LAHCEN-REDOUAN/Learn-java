@@ -1,29 +1,38 @@
 package Exercices;
 
 public class Ex9 {
-    public  String Point;
-    public int abscisse ;
-    public static int Origine ;
+    private int abscisse; // Abscisse relative to the current origin
+    private int origine; // Abscisse of the current origin
 
-
-    public Ex9(String Point , int abscisse){
-        this.Point = Point ;
-        this.abscisse = abscisse ;
+    public Ex9(int absoluteAbscisse) {
+        this.abscisse = absoluteAbscisse;
+        this.origine = 0; // Initial origin at 0
     }
 
-    public int setOrigine(){
-       return  Origine ;
-    }
-    public int getOrigine(){
-        return Origine ;
+    public void affiche() {
+        System.out.println("Point - abscisse = " + this.abscisse +
+                "\n relative a une origine d'abscisse " + this.origine);
     }
 
-    public String Afficher(){
-        return "Point "+this.Point+" - abcisse :  "+this.abscisse+" relative a une Origine : "+this.getOrigine();
+    public void setOrigine(int newOrigine) {
+        this.origine = newOrigine;
     }
 
-    public static void main(String[] Args){
-        Ex9 point = new Ex9("a",5); 
-        System.out.println(point.Afficher());
+    public int getOrigine() {
+        return this.origine;
+    }
+
+    public static void main(String[] args) {
+        Ex9 pointA = new Ex9(3);
+        Ex9 pointB = new Ex9(12);
+
+        pointA.affiche();
+        pointB.affiche();
+
+        System.out.println("On place l'origine en 3");
+        pointA.setOrigine(3);
+
+        pointA.affiche();
+        pointB.affiche();
     }
 }
