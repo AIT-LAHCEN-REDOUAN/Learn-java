@@ -90,6 +90,25 @@ class Medecin extends Employe{
         return ("Un Instance de Medcin : le numero D'employe est : "+this.noEmploye + " le nom d'employe est : "+this.nom+" qui est un "+ (this.getSalaire() == 3000 ? "Assisstant":this.getSalaire() == 5000 ? "Chef de Clinique":this.getSalaire() == 8000 ?"Chef service" : "Na3ess fe dar"));
     }
 }
+
+
+class ListeEmployes {
+    public ArrayList employes = new ArrayList(30)  ;
+
+    public ArrayList getEmployes() {
+        return employes;
+    }
+
+    public void setEmployes(ArrayList employe) {
+        this.employes.add(employe);
+    }
+
+    public String finByNom(String S){
+        return "";
+    }
+}
+
+
 public class EXAM_LAST_YEAR {
     public static void main(String[] Args){
         Agent Agent1 = new Agent(1000 , 2500 , 1 , "Hmido Dib");
@@ -103,14 +122,4 @@ public class EXAM_LAST_YEAR {
     }
 }
 
-class ListeEmployes {
-    public ArrayList employes  ;
 
-    public ArrayList getEmployes() {
-        return employes;
-    }
-
-    public void setEmployes(ArrayList employes) {
-        this.employes = employes;
-    }
-}
