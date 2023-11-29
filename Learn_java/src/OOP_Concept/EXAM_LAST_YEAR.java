@@ -93,32 +93,89 @@ class Medecin extends Employe{
 
 
 class ListeEmployes {
-    public ArrayList employes = new ArrayList(30)  ;
+    public static ArrayList employes = new ArrayList(30)  ;
 
-    public ArrayList getEmployes() {
-        return employes;
+    public static String getEmployes() {
+        for (Object employeObj : employes){
+            Employe employe = (Employe) employeObj ;
+            System.out.println(employe.nom);
+        }
+        return "";
+
     }
 
-    public void setEmployes(ArrayList employe) {
+    public void setEmployes(Employe employe) {
         this.employes.add(employe);
     }
 
-    public String finByNom(String S){
-        return "";
+    public static Object finByNom(String S){
+        for(Object employeObj : employes){
+            Employe employe = (Employe) employeObj;
+           if(employe.nom.equals(S)){
+               return employe ;
+           }
+        }
+        return null ;
+    }
+
+    public static double countEmployes(double sl){
+        int count= 0 ;
+        for (Object emp : employes){
+            Employe employe = (Employe) emp;
+            if (employe.getSalaire() == sl){
+                count +=1 ;
+            }
+
+        }
+        return count ;
+    }
+
+    public static void editEmployes(double sl , String newNom){
+        for (Object emp : employes){
+            Employe employe = (Employe) emp ;
+            if (employe.getSalaire() ==sl){
+                employe.nom = newNom  ;
+            }
+        }
     }
 }
 
 
 public class EXAM_LAST_YEAR {
     public static void main(String[] Args){
-        Agent Agent1 = new Agent(1000 , 2500 , 1 , "Hmido Dib");
+        Agent Agent1 = new Agent(1000 , 3 , 1 , "Hmido Dib");
+        Agent Agent2 = new Agent(1000 , 3 , 2 , "Ayman chapista");
         System.out.println(Agent1.ResumePaye());
 
         //Echelon Echelon1 = new Echelon();
         //System.out.println(Echelon1.getSalaire1(1));
 
-        Medecin Medcin1 = new Medecin(1,"Hmido Dib",3);
+        Medecin Medcin1 = new Medecin(3,"ayoub",3);
+        Medecin Medcin2 = new Medecin(4,"oussama",3);
         System.out.println(Medcin1.ResumePaye());
+
+        ListeEmployes listeEmp = new ListeEmployes();
+
+        listeEmp.setEmployes(Agent1);
+        listeEmp.setEmployes(Agent2);
+        listeEmp.setEmployes(Medcin1);
+        listeEmp.setEmployes(Medcin2);
+
+        String SearchName = "Hmido Dib";
+        Employe foundEmploye = (Employe) ListeEmployes.finByNom(SearchName);
+
+        if (foundEmploye != null){
+            System.out.println("Employe found :"+foundEmploye.ResumePaye());
+        }
+        else {
+            System.out.println("Employe Not Found with name :"+SearchName);
+        }
+
+        System.out.println(ListeEmployes.countEmployes(3000));
+
+        ListeEmployes.editEmployes(3000,"Zakaria");
+
+        System.out.println(ListeEmployes.getEmployes());
     }
 }
 
