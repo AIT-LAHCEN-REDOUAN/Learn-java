@@ -32,6 +32,5 @@ public class Encapsulation {
         System.out.println(A1.getAge());
         A1.setName("ayoub");
         System.out.println(A1.getName());
-
     }
 }
