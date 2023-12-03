@@ -26,7 +26,7 @@ public class Encapsulation {
     public void setAge(int age) {
         this.age = age;
     }
-
+    
     public static void main(String[] Args){
         Encapsulation A1 = new Encapsulation("redouan",15);
         System.out.println(A1.getAge());
