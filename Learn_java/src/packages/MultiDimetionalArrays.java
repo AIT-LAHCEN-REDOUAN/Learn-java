@@ -14,12 +14,11 @@ public class MultiDimetionalArrays {
 
         //3D array
 
-        int[][][] data1 = new int[3][3][3];
-        System.out.println(data1.length);
-        System.out.println(data1[0][0].length);
+        int[][] data1 = new int[3][3];
+
 
         //Ex 2D Array
-        int arr[][] = {{3,3,5},{3,6,7},{7,5,6}} ;
+        int arr[][] = {{3,3,5},{3,6}} ;
 
         for (int i =0 ; i<3;i++ ){
             for (int j =0;j<3 ; j++){

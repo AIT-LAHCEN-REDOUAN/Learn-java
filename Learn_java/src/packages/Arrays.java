@@ -31,6 +31,7 @@ for(int i = 0 ; i<myStudent.length ; i++){
 
 
     int[] arr = new int[2] ;
+    int tab[],tgb;
 
     arr[0] = 10 ;
     arr[1] = 20 ;
