@@ -2,7 +2,7 @@ package Projects_beginners;
 
 import java.util.* ;
 import java.text.*;
-public class Track_inverstments {
+public class Track_investments {
     public static void main(String Args[]){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter your buying price per Share : ");
