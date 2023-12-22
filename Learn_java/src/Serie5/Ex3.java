@@ -10,7 +10,6 @@ public class Ex3 {
             if(i%2 != 0){
                 Liste.add(i);
             }
-
         }
         System.out.println(Liste);
     }
