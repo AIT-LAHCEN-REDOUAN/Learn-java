@@ -1,5 +1,6 @@
 package JDBC_TUTORIAL;
 
+import javax.swing.*;
 import java.sql.*;
 
 public class Example {
@@ -11,10 +12,13 @@ public class Example {
 
 
     public static void main(String[] Args){
+        long start  = System.currentTimeMillis();
         try(
+
                 Connection conn = DriverManager.getConnection(DB_URL,user,password);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(Query);
+                  
 
         ){
             while (rs.next()){
@@ -24,7 +28,10 @@ public class Example {
         }catch (SQLException e){
             e.printStackTrace();;
         }
-    }
+        long end = System.currentTimeMillis();
 
+        System.out.println("Time : "+(end-start) + "ms");
+
+    }
 
 }
