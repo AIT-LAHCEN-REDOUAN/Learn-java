@@ -137,7 +137,7 @@ public class JavaException {
         try {
             Ville ville1 = new Ville("Paris", 2200000, "France");
             System.out.println(ville1.decrisToi());
-        } catch (NombreHabitantException e) {
+        } catch (NombreHabitantException  e) {
             e.printStackTrace();
         }
 
@@ -159,6 +159,7 @@ public class JavaException {
         // Test Capitale creation with negative population (should throw an exception)
         try {
             Capitale capitale2 = new Capitale("Gotham", -500000, "USA", "Bat-Signal");
+            System.out.println(capitale2.toString());
         } catch (NombreHabitantException e) {
             System.out.println("Exception caught: " + e.getMessage());
         }
