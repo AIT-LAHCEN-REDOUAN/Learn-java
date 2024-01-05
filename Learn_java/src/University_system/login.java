@@ -3,10 +3,12 @@ package University_system;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 
 public class login extends JFrame implements ActionListener {
 
     JButton Button_login,cancel;
+    JTextField tfUsername , pfPassword ;
     login() {
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -17,7 +19,7 @@ public class login extends JFrame implements ActionListener {
         add(lblUsername);
 
         // Username input field
-        JTextField tfUsername = new JTextField();
+         tfUsername = new JTextField();
         tfUsername.setBounds(150, 20, 150, 20);
         add(tfUsername);
 
@@ -27,7 +29,7 @@ public class login extends JFrame implements ActionListener {
         add(lblPassword);
 
         // Password input field
-        JPasswordField pfPassword = new JPasswordField();
+         pfPassword = new JPasswordField();
         pfPassword.setBounds(150, 70, 150, 20);
         add(pfPassword);
 
@@ -66,6 +68,26 @@ public class login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae){
 
         if (ae.getSource() == Button_login){
+             String username = tfUsername.getText() ;
+             String password = pfPassword.getText();
+
+            String query = "SELECT * FROM login WHERE username = '" + username + "' AND password = '" + password + "'";
+
+            try {
+              Conn c = new Conn();
+              ResultSet rs =  c.s.executeQuery(query);
+
+              if (rs.next()){
+                  setVisible(false);
+                  new Project();
+              } else {
+               JOptionPane.showMessageDialog(null,"Invalid UserName Or Password");
+               setVisible(false);
+              }
+              c.s.close();
+             }catch(Exception e){
+                 e.printStackTrace();
+             }
 
         }else if (ae.getSource() ==cancel){
             setVisible(false);
