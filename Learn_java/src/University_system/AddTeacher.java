@@ -9,10 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import com.toedter.calendar.*;
 
-public class AddStudent extends JFrame implements ActionListener {
+public class AddTeacher extends JFrame implements ActionListener {
 
     JTextField tfname ,tfaname ,tfphone , tfaddress , tfemail , tfx , tfx1 , tfSN ;
-    JLabel labelfrollno ;
+    JLabel labelempId ;
     JDateChooser dcdob ;
 
     JComboBox cbcourse , cbbranch ;
@@ -21,12 +21,12 @@ public class AddStudent extends JFrame implements ActionListener {
 
     Random ran = new Random();
     long first4 = Math.abs((ran.nextLong() % 9000L)+1000L);
-    AddStudent(){
+    AddTeacher(){
         setSize(900,700);
         setLocation(350,50);
 
         setLayout(null);
-        JLabel heading = new JLabel("New Student Information");
+        JLabel heading = new JLabel("New Teacher Information");
         heading.setBounds(280,30,500,50);
         heading.setFont(new Font("serif",Font.BOLD,30));
         add(heading);
@@ -49,15 +49,15 @@ public class AddStudent extends JFrame implements ActionListener {
         tfaname.setBounds(600,160,150,30);
         add(tfaname);
 
-        JLabel lblfrollno = new JLabel("Role Number : ");
-        lblfrollno.setBounds(50,230,200,50);
-        lblfrollno.setFont(new Font("serif",Font.BOLD,20));
-        add(lblfrollno);
+        JLabel employeId = new JLabel("employee Id : ");
+        employeId.setBounds(50,230,200,50);
+        employeId.setFont(new Font("serif",Font.BOLD,20));
+        add(employeId);
 
-        labelfrollno = new JLabel("1533"+first4);
-        labelfrollno.setBounds(200,230,200,50);
-        labelfrollno.setFont(new Font("serif",Font.BOLD,20));
-        add(labelfrollno);
+        labelempId = new JLabel("1533"+first4);
+        labelempId.setBounds(200,230,200,50);
+        labelempId.setFont(new Font("serif",Font.BOLD,20));
+        add(labelempId);
 
         JLabel lbldob = new JLabel("Date Of Birth ");
         lbldob.setBounds(400,230,200,50);
@@ -114,7 +114,7 @@ public class AddStudent extends JFrame implements ActionListener {
         tfx1.setBounds(260,480,150,30);
         add(tfx1);
 
-        JLabel lblStudentNumber = new JLabel("Student Number :");
+        JLabel lblStudentNumber = new JLabel("Teacher Number :");
         lblStudentNumber.setBounds(450,470,200,50);
         lblStudentNumber.setFont(new Font("serif",Font.BOLD,20));
         add(lblStudentNumber);
@@ -123,7 +123,7 @@ public class AddStudent extends JFrame implements ActionListener {
         tfSN.setBounds(650,480,150,30);
         add(tfSN);
 
-        JLabel lblcourse = new JLabel("Course :");
+        JLabel lblcourse = new JLabel("Education  :");
         lblcourse.setBounds(100,550,200,50);
         lblcourse.setFont(new Font("serif",Font.BOLD,20));
         add(lblcourse);
@@ -135,7 +135,7 @@ public class AddStudent extends JFrame implements ActionListener {
         add(cbcourse);
 
 
-        JLabel lblbranch = new JLabel("Branch :");
+        JLabel lblbranch = new JLabel("Departement :");
         lblbranch.setBounds(450,550,200,50);
         lblbranch.setFont(new Font("serif",Font.BOLD,20));
         add(lblbranch);
@@ -168,40 +168,40 @@ public class AddStudent extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent ae){
         if (ae.getSource() == submit){
-             String name = tfname.getText();
-             String FatherName = tfaname.getText();
-             String RoleNumber = labelfrollno.getText();
-             Date BirthDate = dcdob.getDate();
-             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-             String formatedBirthDate = dateFormat.format(BirthDate);
+            String name = tfname.getText();
+            String FatherName = tfaname.getText();
+            String Roleemp = labelempId.getText();
+            Date BirthDate = dcdob.getDate();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String formatedBirthDate = dateFormat.format(BirthDate);
 
-             String Adress = tfaddress.getText();
-             String Phone = tfphone.getText();
-             String Email = tfemail.getText();
-             String ClassX = tfx.getText();
-             String ClassXII = tfx1.getText();
-             String StudentNO = tfSN.getText();
-             String  Course = (String) cbcourse.getSelectedItem();
-             String Branch = (String) cbbranch.getSelectedItem();
-             //System.out.println(name);
-             //System.out.println(FatherName);
-             //System.out.println(RoleNumber);
-             //System.out.println(BirthDate);
-             //System.out.println(Adress);
-             //System.out.println(Phone);
-             //System.out.println(Email);
-             //System.out.println(ClassX);
-             //System.out.println(ClassXII);
-             //System.out.println(StudentNO);
-             //System.out.println(Course);
-             //System.out.println(Branch);
+            String Adress = tfaddress.getText();
+            String Phone = tfphone.getText();
+            String Email = tfemail.getText();
+            String ClassX = tfx.getText();
+            String ClassXII = tfx1.getText();
+            String StudentNO = tfSN.getText();
+            String  Course = (String) cbcourse.getSelectedItem();
+            String Branch = (String) cbbranch.getSelectedItem();
+            //System.out.println(name);
+            //System.out.println(FatherName);
+            //System.out.println(RoleNumber);
+            //System.out.println(BirthDate);
+            //System.out.println(Adress);
+            //System.out.println(Phone);
+            //System.out.println(Email);
+            //System.out.println(ClassX);
+            //System.out.println(ClassXII);
+            //System.out.println(StudentNO);
+            //System.out.println(Course);
+            //System.out.println(Branch);
 
             try{
-                String query = "INSERT INTO Student VALUES('"+name+"','"+FatherName+"','"+RoleNumber+"','"+formatedBirthDate+"','"+Adress+"','"+Phone+"','"+Email+"','"+ClassX+"','"+ClassXII+"','"+StudentNO+"','"+Course+"','"+Branch+"')";
+                String query = "INSERT INTO teacher VALUES('"+name+"','"+FatherName+"','"+Roleemp+"','"+formatedBirthDate+"','"+Adress+"','"+Phone+"','"+Email+"','"+ClassX+"','"+ClassXII+"','"+StudentNO+"','"+Course+"','"+Branch+"')";
                 Conn con = new Conn();
                 con.s.executeUpdate(query);
 
-                JOptionPane.showMessageDialog(null , "New Student Inserted Successfully !!");
+                JOptionPane.showMessageDialog(null , "New Teacher Inserted Successfully !!");
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null , e.getMessage());
             }
@@ -213,8 +213,8 @@ public class AddStudent extends JFrame implements ActionListener {
             setVisible(false);
         }
     }
-   public static void main(String[] Args){
-        new AddStudent();
+    public static void main(String[] Args){
+        new AddTeacher();
 
-   }
+    }
 }
