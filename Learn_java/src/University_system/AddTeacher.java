@@ -142,7 +142,7 @@ public class AddTeacher extends JFrame implements ActionListener {
 
         String Branch[] = {"Computer Science","Electronics","Mechanics","Physics","Chemics","IT"};
         cbbranch  = new JComboBox(Branch);
-        cbbranch.setBounds(550,560,150,30);
+        cbbranch.setBounds(590,560,150,30);
         cbbranch.setBackground(Color.WHITE);
         add(cbbranch);
 
