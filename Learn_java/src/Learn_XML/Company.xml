@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE company [
+        <!ELEMENT company (name, location, industry, internship_opportunities, contact_information)>
+        <!ELEMENT name (#PCDATA)>
+
+        <!ELEMENT location (city, state, country)>
+        <!ELEMENT city (#PCDATA)>
+        <!ELEMENT state (#PCDATA)>
+        <!ELEMENT country (#PCDATA)>
+
+        <!ELEMENT industry (#PCDATA)>
+
+        <!ELEMENT internship_opportunities (internship+)>
+        <!ELEMENT internship (title, description, requirements, duration, stipend)>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT requirements (qualification, skills)>
+        <!ELEMENT qualification (#PCDATA)>
+        <!ELEMENT skills (skill+)>
+        <!ELEMENT skill (#PCDATA)>
+        <!ELEMENT duration (#PCDATA)>
+        <!ELEMENT stipend (#PCDATA)>
+
+        <!ELEMENT contact_information (email, phone, website)>
+        <!ELEMENT email (#PCDATA)>
+        <!ELEMENT phone (#PCDATA)>
+        <!ELEMENT website (#PCDATA)>
+        ]>
+<company>
+    <name>XYZ Tech Solutions</name>
+    <location>
+        <city>New York</city>
+        <state>NY</state>
+        <country>USA</country>
+    </location>
+    <industry>Information Technology</industry>
+    <internship_opportunities>
+        <internship>
+            <title>Software Engineering Intern</title>
+            <description>
+                Join us as a Software Engineering Intern to work on cutting-edge projects and gain hands-on experience in software development.
+            </description>
+            <requirements>
+                <qualification>Enrolled in a Computer Science program</qualification>
+                <skills>
+                    <skill>Programming languages (e.g., Java, Python)</skill>
+                    <skill>Problem-solving abilities</skill>
+                    <skill>Team collaboration</skill>
+                </skills>
+            </requirements>
+            <duration>3 months</duration>
+            <stipend>$2000 per month</stipend>
+        </internship>
+        <!-- Add more internship opportunities as needed -->
+    </internship_opportunities>
+    <contact_information>
+        <email>info@xyztech.com</email>
+        <phone>(555) 123-4567</phone>
+        <website>http://www.xyztech.com</website>
+    </contact_information>
+</company>
