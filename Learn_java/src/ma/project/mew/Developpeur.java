@@ -11,7 +11,7 @@ public class Developpeur extends Personne {
     }
 
     public String getSpecialite() {
-        return specialite;
+        return this.specialite;
     }
 
     public void setSpecialite(String specialite) {

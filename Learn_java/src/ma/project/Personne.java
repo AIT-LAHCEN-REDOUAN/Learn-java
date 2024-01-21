@@ -1,14 +1,12 @@
 package ma.project;
 
-import javax.naming.InvalidNameException;
-import java.sql.SQLOutput;
-
 abstract public class Personne {
     protected int id ;
     protected String nom ,prenom,mail,telephone ;
     protected double salaire ;
 
-    protected Personne(int id, String nom, String prenom, String mail, String telephone, double salaire) {
+
+    public  Personne(int id, String nom, String prenom, String mail, String telephone, double salaire) {
         this.id = id ;
 
         if (nom.length() <5 || nom.length()>10){
@@ -29,7 +27,7 @@ abstract public class Personne {
         this.telephone = telephone ;
         this.salaire = salaire;
     }
-     protected abstract double  calculerSalaire();
+      abstract public double  calculerSalaire();
 
-    public abstract String toString();
+     abstract public String toString();
 }
