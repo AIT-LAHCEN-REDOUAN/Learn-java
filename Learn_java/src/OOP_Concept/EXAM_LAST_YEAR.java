@@ -93,12 +93,11 @@ class Medecin extends Employe{
 
 
 class ListeEmployes {
-    public static ArrayList employes = new ArrayList(30)  ;
+     static ArrayList<Employe> employes = new ArrayList(30)  ;
 
     public static String getEmployes() {
-        for (Object employeObj : employes){
-            Employe employe = (Employe) employeObj ;
-            System.out.println(employe.nom);
+        for (Employe employeObj : employes){
+            System.out.println(employeObj.nom);
         }
         return "";
 
@@ -109,20 +108,18 @@ class ListeEmployes {
     }
 
     public static Object finByNom(String S){
-        for(Object employeObj : employes){
-            Employe employe = (Employe) employeObj;
-           if(employe.nom.equals(S)){
-               return employe ;
+        for(Employe employeObj : employes){
+           if(employeObj.nom.equals(S)){
+               return employeObj ;
            }
         }
         return null ;
     }
 
-    public static double countEmployes(double sl){
+    public static double countEmployes(double salaire){
         int count= 0 ;
-        for (Object emp : employes){
-            Employe employe = (Employe) emp;
-            if (employe.getSalaire() == sl){
+        for (Employe emp : employes){
+            if (emp.getSalaire() == salaire){
                 count +=1 ;
             }
 
@@ -130,11 +127,10 @@ class ListeEmployes {
         return count ;
     }
 
-    public static void editEmployes(double sl , String newNom){
-        for (Object emp : employes){
-            Employe employe = (Employe) emp ;
-            if (employe.getSalaire() ==sl){
-                employe.nom = newNom  ;
+    public static void editEmployes(double salaire , String newNom){
+        for (Employe emp : employes){
+            if (emp.getSalaire() == salaire){
+                emp.nom = newNom  ;
             }
         }
     }
