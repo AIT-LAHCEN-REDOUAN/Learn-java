@@ -1,4 +1,12 @@
 package Figures;
 
-public class TriangleDroit {
+public class TriangleDroit extends Figure {
+    public TriangleDroit(int NombreLignes , String motif){
+        super(NombreLignes,motif);
+    }
+
+    @Override
+    public String toString() {
+        return "le Nombre De Lignes et :"+this.NombreLignes+" le motif est : "+this.motif ;
+    }
 }
