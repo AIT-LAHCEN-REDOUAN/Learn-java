@@ -174,7 +174,6 @@ public class AddStudent extends JFrame implements ActionListener {
              Date BirthDate = dcdob.getDate();
              SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
              String formatedBirthDate = dateFormat.format(BirthDate);
-
              String Adress = tfaddress.getText();
              String Phone = tfphone.getText();
              String Email = tfemail.getText();
