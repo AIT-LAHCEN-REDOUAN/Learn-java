@@ -13,7 +13,9 @@ abstract class Employe{
     }
     abstract double getSalaire();
 
-    abstract String ResumePaye();
+    public String ResumePaye(){
+        return ("Un Instance de Agent le numero D'employe est : "+this.noEmploye + " le nom d'employe est : "+this.nom);
+    }
 }
 
 class Agent extends Employe{
@@ -25,7 +27,7 @@ class Agent extends Employe{
         this.NbHeures=NbHeures ;
         this.indice = indice;
     }
-    public double getSalaire(){
+     public double getSalaire(){
         if (this.NbHeures >1000){
             JOptionPane.showMessageDialog(null,"the Number Is OVER 1000 !!");
         }
@@ -35,9 +37,7 @@ class Agent extends Employe{
         return 0;
 
     }
-    public String ResumePaye(){
-        return ("Un Instance de Agent le numero D'employe est : "+this.noEmploye + " le nom d'employe est : "+this.nom+" le Salaire d'employe est : "+ this.indice);
-    }
+
 }
 
 class Echelon {
@@ -45,62 +45,45 @@ class Echelon {
     public final int CHEF_DE_CLINIQUE = 2 ;
     public final int CHEF_DE_SERVICE = 3 ;
 
-    public String getSalaire1(int echelon){
+    public double getSalaire1(int echelon){
         switch (echelon){
             case  ASSISTANT :
-                JOptionPane.showMessageDialog(null , "3000");
-                break;
+                return 3000.0;
             case CHEF_DE_CLINIQUE :
-                JOptionPane.showMessageDialog(null,"5000");
-                break;
+                return 5000.0;
             case CHEF_DE_SERVICE :
-                JOptionPane.showMessageDialog(null,"8000");
-                break;
+                return 8000;
             default:
-                JOptionPane.showMessageDialog(null,"0.0");
-                break;
+                return 0.0 ;
         }
-
-        return "";
     }
 }
 
 class Medecin extends Employe{
     private int echelon ;
+    Echelon echelonInstance = new Echelon() ;
 
     public Medecin(int no , String n,int echelon){
         super(no, n);
         this.echelon = echelon ;
+
     }
 
     public double getSalaire(){
-        switch (echelon){
-            case  1 :
-                return 3000.0;
-            case 2 :
-                return 5000.0;
-            case 3 :
-                return 8000.0;
-            default:
-                return 0.0;
-        }
+        return echelonInstance.getSalaire1(echelon);
 
     }
-    public String ResumePaye(){
-        return ("Un Instance de Medcin : le numero D'employe est : "+this.noEmploye + " le nom d'employe est : "+this.nom+" qui est un "+ (this.getSalaire() == 3000 ? "Assisstant":this.getSalaire() == 5000 ? "Chef de Clinique":this.getSalaire() == 8000 ?"Chef service" : "Na3ess fe dar"));
-    }
+
 }
-
 
 class ListeEmployes {
      static ArrayList<Employe> employes = new ArrayList(30)  ;
 
     public static String getEmployes() {
         for (Employe employeObj : employes){
-            System.out.println(employeObj.nom);
+             System.out.println(employeObj.nom);
         }
         return "";
-
     }
 
     public void setEmployes(Employe employe) {
@@ -116,10 +99,10 @@ class ListeEmployes {
         return null ;
     }
 
-    public static double countEmployes(double salaire){
+    public static double countEmployes(double sl){
         int count= 0 ;
         for (Employe emp : employes){
-            if (emp.getSalaire() == salaire){
+            if (emp.getSalaire() == sl){
                 count +=1 ;
             }
 
@@ -127,9 +110,9 @@ class ListeEmployes {
         return count ;
     }
 
-    public static void editEmployes(double salaire , String newNom){
+    public static void editEmployesNom(double sl , String newNom){
         for (Employe emp : employes){
-            if (emp.getSalaire() == salaire){
+            if (emp.getSalaire() == sl){
                 emp.nom = newNom  ;
             }
         }
@@ -169,7 +152,7 @@ public class EXAM_LAST_YEAR {
 
         System.out.println(ListeEmployes.countEmployes(3000));
 
-        ListeEmployes.editEmployes(3000,"Zakaria");
+        ListeEmployes.editEmployesNom(3000,"Zakaria");
 
         System.out.println(ListeEmployes.getEmployes());
 }
