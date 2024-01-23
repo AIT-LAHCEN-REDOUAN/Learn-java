@@ -20,8 +20,8 @@ class Agent extends Employe{
     private int NbHeures ;
     private int indice ;
 
-    public Agent(int NbHeures , int indice , int noEmploye , String nom){
-        super(noEmploye,nom);
+    public Agent(int NbHeures , int indice , int no , String n){
+        super(no,n);
         this.NbHeures=NbHeures ;
         this.indice = indice;
     }
@@ -68,8 +68,8 @@ class Echelon {
 class Medecin extends Employe{
     private int echelon ;
 
-    public Medecin(int noEmploye , String nom,int echelon){
-        super(noEmploye, nom);
+    public Medecin(int no , String n,int echelon){
+        super(no, n);
         this.echelon = echelon ;
     }
 
