@@ -91,7 +91,6 @@ class ListeEmployes {
     }
 
     public static Object finByNom(String  S){
-        -------------------------------------------------------------------------------------------
         for(Employe employeObj : employes){
            if(employeObj.nom.equals(S)){
                return employeObj ;
