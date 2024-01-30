@@ -1,5 +1,7 @@
 package Exercices;
 
+import java.util.*;
+
 public class Ex3 {
     public static void main(String[] Args){
 
@@ -27,6 +29,30 @@ public class Ex3 {
 
         char c = 60 , ce='e' ,cg = 'g';
         byte b = 10 ;
+
+
+
+        List<Integer> tableau = new ArrayList<Integer>(3);
+
+        tableau.add(20);
+        tableau.add(15);
+        tableau.add(23);
+        int notes  ;
+
+        /*for (int i = 0 ; i<=tableau.size() ; i++){
+            notes = tableau.get(i);
+            if (tableau.get(i) > tableau.get(i+1) && tableau.get(i) > tableau.get(i+2)){
+
+            }
+        }*/
+        System.out.println();
+
+        int max = Collections.max(tableau);
+        int min = Collections.min(tableau);
+        
+        System.out.println(max);
+        System.out.println(min);
+
 
 
 

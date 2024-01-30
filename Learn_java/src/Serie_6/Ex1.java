@@ -1,4 +1,8 @@
 package Serie_6;
+
+import java.util.ArrayList;
+import java.util.*;
+
 public class Ex1 {
     private double[] composantes;
 
@@ -71,5 +75,7 @@ public class Ex1 {
         } else {
             System.out.println("Les vecteurs n'ont pas la même taille, impossible de faire la somme.");
         }
+
+        List<Integer> notes  = new ArrayList<Integer>();
     }
 }
