@@ -111,7 +111,7 @@ class ModuleTp extends Module {
     }
 
     public ListeStagiaire getStagiaires() {
-        return stagiaires;
+        return this.stagiaires;
     }
 
     public void setStagiaires(ListeStagiaire stagiaires) {
@@ -120,10 +120,10 @@ class ModuleTp extends Module {
 
     public double CalculerMoyenneModuleTP(){
         double TotalMoyenne = 0 ;
-        for(Stagiaire ele : stagiaires.stagiaires){
+        for(Stagiaire ele : this.stagiaires.stagiaires){
              TotalMoyenne+=ele.CalculerMoyenne();
         }
-        return TotalMoyenne/stagiaires.stagiaires.size();
+        return TotalMoyenne/this.stagiaires.stagiaires.size();
     }
 
     public String afficherNomMax(){
@@ -132,7 +132,6 @@ class ModuleTp extends Module {
 
         for(int i = 0 ; i<this.stagiaires.stagiaires.size();i++){
             if (this.stagiaires.stagiaires.get(i).CalculerMoyenne()>max){
-                max =this.stagiaires.stagiaires.get(i).CalculerMoyenne();
                 getNomMax = this.stagiaires.stagiaires.get(i).getNom();
             }
         }
