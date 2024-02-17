@@ -1,8 +1,5 @@
 package TechnoHackTasks;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -104,5 +101,4 @@ public class Task_1 extends JFrame implements ActionListener {
         new Task_1();
     }
 }
-
 
